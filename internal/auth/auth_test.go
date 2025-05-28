@@ -43,7 +43,7 @@ func TestGetAPIKeyExistsInvalid(t *testing.T) {
 func TestGetAPIKeyExistsValid(t *testing.T) {
 	// Arrange
 	headers := http.Header{}
-	headers.Add("Authorization", "ApiKe test_key_lol")
+	headers.Add("Authorization", "ApiKey test_key_lol")
 
 	// Act
 	key, err := GetAPIKey(headers)
@@ -54,5 +54,8 @@ func TestGetAPIKeyExistsValid(t *testing.T) {
 	}
 	if key == "" {
 		t.Errorf("Expected API key, got empty string")
+	}
+	if key != "test_key_lol" {
+		t.Errorf("Expected API key to be test_key_lol, got %s", key)
 	}
 }
