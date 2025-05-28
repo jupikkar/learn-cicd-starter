@@ -1,8 +1,8 @@
 package auth
 
 import (
-	"testing"
 	"net/http"
+	"testing"
 )
 
 func TestGetAPIKeyEmpty(t *testing.T) {
@@ -18,8 +18,8 @@ func TestGetAPIKeyEmpty(t *testing.T) {
 	}
 
 	if err != ErrNoAuthHeaderIncluded {
-        t.Errorf("Expected error '%v', got '%v'", ErrNoAuthHeaderIncluded, err)
-    }
+		t.Errorf("Expected error '%v', got '%v'", ErrNoAuthHeaderIncluded, err)
+	}
 }
 
 func TestGetAPIKeyExistsInvalid(t *testing.T) {
@@ -36,8 +36,8 @@ func TestGetAPIKeyExistsInvalid(t *testing.T) {
 	}
 
 	if err != ErrMalformedAuthHeader {
-        t.Errorf("Expected error '%v', got '%v'", ErrMalformedAuthHeader, err)
-    }
+		t.Errorf("Expected error '%v', got '%v'", ErrMalformedAuthHeader, err)
+	}
 }
 
 func TestGetAPIKeyExistsValid(t *testing.T) {
